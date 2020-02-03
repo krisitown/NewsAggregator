@@ -18,12 +18,12 @@ public class NewsSourceController {
         return newsSourceService.getNewsSource(sourceId);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/create")
     public NewsSource create(@RequestBody NewsSource newsSource){
         return newsSourceService.persistNewsSource(newsSource);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/edit")
     public NewsSource update(@RequestBody NewsSource newsSource){
         return newsSourceService.persistNewsSource(newsSource);
     }

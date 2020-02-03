@@ -18,7 +18,7 @@ public class FeedController {
         return feedService.persist(feed);
     }
 
-    @GetMapping()
+    @GetMapping("/get")
     public List<Feed> getFeedsOfUser(@RequestParam String token){
         return feedService.getUserFeeds(token);
     }

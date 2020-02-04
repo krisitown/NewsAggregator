@@ -15,19 +15,17 @@ public class User {
     @Id
     private String token;
 
-    @Min(3)
-    @Max(30)
     @NonNull
     private String name;
 
     @Email
     @NonNull
     private String email;
-
-    @Min(9)
-    @Max(30)
+    
     @NonNull
     private String password;
 
-    User(){}
+    User(){
+
+    }
 }

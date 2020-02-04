@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -16,7 +17,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/new")
-    public UserBodyResponse register(@RequestBody @Validated User userBody) throws Exception{
+    public UserBodyResponse register(@RequestBody User userBody) throws Exception{
         User createdUser = userService.createUser(userBody);
         if(createdUser != null){
             return transformUserToResponse(createdUser);

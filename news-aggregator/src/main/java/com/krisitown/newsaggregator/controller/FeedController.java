@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller("/api/feeds")
+@RestController
+@RequestMapping("/api/feeds")
 public class FeedController {
     @Autowired
     private FeedService feedService;

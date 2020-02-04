@@ -58,6 +58,12 @@ public class CrawlerService {
                 }
 
                 databaseService.saveArticle(article);
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException ex){
+                    ex.printStackTrace();
+                }
+
             }
         }
     }
@@ -73,10 +79,9 @@ public class CrawlerService {
         article.setTitle(titleElement.text());
 
         Element imageElement = document.selectFirst(source.getImageSelector());
-        if(imageElement == null){
-            return null;
+        if(imageElement != null){
+            article.setImage(titleElement.attr("src"));
         }
-        article.setImage(titleElement.attr("src"));
 
         Elements contentElements = document.select(source.getContentSelector());
         if(contentElements == null){

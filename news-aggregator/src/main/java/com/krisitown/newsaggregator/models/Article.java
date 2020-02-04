@@ -22,4 +22,6 @@ public class Article {
 
     @ManyToOne
     private NewsSource newsSource;
+
+    Article(){}
 }

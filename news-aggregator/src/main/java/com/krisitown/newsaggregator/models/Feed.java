@@ -19,4 +19,6 @@ public class Feed {
 
     @OneToMany
     private List<NewsSource> sources;
+
+    Feed(){}
 }

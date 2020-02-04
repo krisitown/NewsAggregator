@@ -28,4 +28,6 @@ public class User {
     @Max(30)
     @NonNull
     private String password;
+
+    User(){}
 }

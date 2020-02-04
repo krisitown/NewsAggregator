@@ -8,17 +8,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller("/api/newsSources")
+@RestController
+@RequestMapping("/api/sources")
 public class NewsSourceController {
     @Autowired
     private NewsSourceService newsSourceService;
 
-    @GetMapping("/{sourceId}")
+    @GetMapping("/get/{sourceId}")
     public NewsSource getNewsSource(@PathVariable Long sourceId){
         return newsSourceService.getNewsSource(sourceId);
     }
 
-    @PostMapping("/create")
+    @PostMapping("/new")
     public NewsSource create(@RequestBody NewsSource newsSource){
         return newsSourceService.persistNewsSource(newsSource);
     }
@@ -28,7 +29,7 @@ public class NewsSourceController {
         return newsSourceService.persistNewsSource(newsSource);
     }
 
-    @GetMapping()
+    @GetMapping("/index")
     public List<NewsSource> index(){
         return newsSourceService.getNewsSources();
     }

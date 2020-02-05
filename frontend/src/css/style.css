@@ -60,6 +60,7 @@ h1,h2,h3,h4,h5,h6,p,label{
 }
 /*----*/
 .top-nav span.menu:before{
+	content: url(../images/menu.png)no-repeat 0px 0px;
 	cursor:pointer;	
 	width:100%;
 }
@@ -129,6 +130,7 @@ h1,h2,h3,h4,h5,h6,p,label{
 .search input[type="submit"] {	
 	width: 20px;
 	height: 20px;	
+	background:url(../images/img-sprite.png)no-repeat -9px -6px;
 	border: none;
 	cursor: pointer;
 	position: absolute;
@@ -182,6 +184,7 @@ h1,h2,h3,h4,h5,h6,p,label{
 span.plus{
 	width: 52px;
 	height: 52px;
+	background: url(../images/img-sprite.png)no-repeat -272px -26px;
 	display: block;
 	margin:0 auto;
 }
@@ -212,9 +215,11 @@ ul.wmuSliderPagination{
 	bottom: 5em;
 }
 .wmuSliderPrev {
+	background: url(../images/a-left.png)no-repeat 0px 0px;
 	left: 13%;
 }
 .wmuSliderNext {
+	background: url(../images/a-right.png)no-repeat 0px 0px;
 	right: 12.8%;
 }
 /*----*/
@@ -258,6 +263,7 @@ a.more:hover{
 a.more span.plus-on{
 	width: 20px;
 	height: 17px;
+	background: url(../images/img-sprite.png)no-repeat -230px -135px;
 	display:inline-block;
 }
 /*--portfolio-grid--*/
@@ -365,6 +371,7 @@ a.read-more:hover{
 a.read-more span{
 	width: 20px;
 	height: 17px;
+	background: url(../images/img-sprite.png)no-repeat -204px -135px;
 	display:inline-block;
 }
 ul.social li{
@@ -376,6 +383,7 @@ ul.social li{
 	font-size: 1em;
 }
 ul.social li span{
+	background: url(../images/img-sprite.png)no-repeat -341px -42px ;
 	width: 32px;
 	height: 24px;
 	display:block;
@@ -416,6 +424,7 @@ ul.social li span.number{
 .simple-in i.plus-in{
 	width: 52px;
 	height: 52px;
+	background: url(../images/img-sprite.png)no-repeat -272px -26px;
 	display: block;
 	margin:5.5em auto;
 }
@@ -504,6 +513,7 @@ p.elit {
 i.quote{
 	width: 40px;
 	height: 40px;
+	background: url(../images/qu.png)no-repeat 0px 0px;
 	display: block;
 	float:left;
 }
@@ -714,6 +724,7 @@ a.web-in{
 	border: none;
 	color: #000;
 	display: block;
+	background: url(../images/img-sprite.png)no-repeat -204px -134px;
 	font-weight: 700;
 }
 .contact-bottom input[type="submit"]:hover{
@@ -791,6 +802,7 @@ ul.social-ic-icons li{
 	display:inline-block;	
 }
 ul.social-ic-icons li a span{
+	background: url(../images/img-sprite.png)no-repeat -23px -132px;
 	width: 37px;
 	height: 37px;
 	display:block;
@@ -906,7 +918,6 @@ ul.button-text li {
 }
 .date-in p a,.date p span a,.date p span {
 	font-size: 0.9em;
-}
 }
 @media(max-width:768px){
 .search {

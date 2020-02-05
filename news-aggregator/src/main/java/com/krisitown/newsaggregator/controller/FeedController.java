@@ -1,5 +1,6 @@
 package com.krisitown.newsaggregator.controller;
 
+import com.krisitown.newsaggregator.dto.FeedCreationRequest;
 import com.krisitown.newsaggregator.models.Feed;
 import com.krisitown.newsaggregator.services.interfaces.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class FeedController {
     private FeedService feedService;
 
     @PostMapping("/new")
-    public Feed create(@RequestBody Feed feed){
-        return feedService.persist(feed);
+    public Feed create(@RequestBody FeedCreationRequest feed){
+        return feedService.create(feed);
     }
 
     @GetMapping("/get")

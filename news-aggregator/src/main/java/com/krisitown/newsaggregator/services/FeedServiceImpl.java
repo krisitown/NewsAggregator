@@ -1,13 +1,17 @@
 package com.krisitown.newsaggregator.services;
 
+import com.krisitown.newsaggregator.dto.FeedCreationRequest;
 import com.krisitown.newsaggregator.models.Feed;
+import com.krisitown.newsaggregator.models.NewsSource;
 import com.krisitown.newsaggregator.models.User;
 import com.krisitown.newsaggregator.repositories.FeedRepository;
+import com.krisitown.newsaggregator.repositories.NewsSourcesRepository;
 import com.krisitown.newsaggregator.repositories.UsersRepository;
 import com.krisitown.newsaggregator.services.interfaces.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +21,24 @@ public class FeedServiceImpl implements FeedService {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @Autowired
+    private NewsSourcesRepository sourceRepository;
+
+    @Override
+    public Feed create(FeedCreationRequest request) {
+        User user = usersRepository.findFirstByToken(request.getUserToken());
+        List<NewsSource> sources = new ArrayList<>();
+        for(Long id : request.getIds()){
+            sources.add(sourceRepository.findById(id).get());
+        }
+        Feed feed = new Feed();
+        feed.setName(request.getName());
+        feed.setSources(sources);
+        feed.setUser(user);
+        feedRepository.save(feed);
+        return feed;
+    }
 
     @Override
     public Feed persist(Feed feed) {

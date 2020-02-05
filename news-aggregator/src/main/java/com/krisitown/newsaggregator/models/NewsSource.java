@@ -30,5 +30,5 @@ public class NewsSource {
     @NonNull
     private String imageSelector;
 
-    NewsSource(){}
+    public NewsSource(){}
 }

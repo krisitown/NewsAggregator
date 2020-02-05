@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UsersRepository extends CrudRepository<User, String> {
     User findFirstByEmail(String email);
+    User findFirstByToken(String token);
 }

@@ -25,7 +25,7 @@ public class User {
     @NonNull
     private String password;
 
-    User(){
+    public User(){
 
     }
 }

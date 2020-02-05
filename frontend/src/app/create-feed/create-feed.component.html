@@ -1,0 +1,7 @@
+Name: <input [(ngModel)]="name">
+<div *ngFor="let source of sources">
+    <input  type="checkbox" value="{{source.id}}" [(ngModel)]="source.checked"> {{source.link}}
+</div>
+<div>
+    <button (click)="createFeed()">Create!</button>
+</div>

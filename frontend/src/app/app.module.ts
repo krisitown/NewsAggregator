@@ -10,6 +10,9 @@ import { ArticleComponent } from './article/article.component';
 import { ArticleThumbnailComponent } from './article-thumbnail/article-thumbnail.component';
 import { FeedComponent } from './feed/feed.component';
 import { CreateFeedComponent } from './create-feed/create-feed.component';
+import { CreateSourceComponent } from './create-source/create-source.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { CreateFeedComponent } from './create-feed/create-feed.component';
     ArticleComponent,
     ArticleThumbnailComponent,
     FeedComponent,
-    CreateFeedComponent
+    CreateFeedComponent,
+    CreateSourceComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

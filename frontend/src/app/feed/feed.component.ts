@@ -16,13 +16,12 @@ export class FeedComponent implements OnInit {
 
   ngOnInit() {
     console.log("FEED!");
-    this.selectedFeed = "61";
     this.token = localStorage.getItem('userToken');
     this.client.get<any>('http://localhost:8080/api/feeds/get?token=' + this.token).subscribe(data => {
       console.log(data);
       this.feeds = data;
-      if(this.feeds){
-        this.selectedFeed = this.feeds[0].id;
+      if(this.feeds){ 
+        this.onChange(this.feeds[0].id);
       }
     })
   }

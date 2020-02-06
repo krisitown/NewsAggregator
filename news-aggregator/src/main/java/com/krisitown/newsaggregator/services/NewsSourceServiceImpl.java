@@ -1,8 +1,11 @@
 package com.krisitown.newsaggregator.services;
 
+import com.krisitown.newsaggregator.dto.NewsSourceCreationRequest;
 import com.krisitown.newsaggregator.models.NewsSource;
+import com.krisitown.newsaggregator.models.User;
 import com.krisitown.newsaggregator.repositories.NewsSourcesRepository;
 import com.krisitown.newsaggregator.services.interfaces.NewsSourceService;
+import com.krisitown.newsaggregator.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,23 @@ import java.util.List;
 public class NewsSourceServiceImpl implements NewsSourceService {
     @Autowired
     private NewsSourcesRepository newsSourcesRepository;
+
+    @Autowired
+    private UserService userService;
+
+    @Override
+    public NewsSource create(NewsSourceCreationRequest request) {
+        User user = userService.getUser(request.getUserToken());
+        NewsSource newsSource = new NewsSource();
+        newsSource.setLink(request.getLink());
+        newsSource.setContentSelector(request.getContentSelector());
+        newsSource.setLinkSelector(request.getLinkSelector());
+        newsSource.setTitleSelector(request.getTitleSelector());
+        newsSource.setImageSelector(request.getImageSelector());
+        newsSource.setUser(user);
+        newsSourcesRepository.save(newsSource);
+        return newsSource;
+    }
 
     @Override
     public NewsSource persistNewsSource(NewsSource newsSource) {

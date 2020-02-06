@@ -1,0 +1,13 @@
+<div class="header">
+    <div class="top-nav">
+        <span class="menu"> </span>
+        <ul>
+            <li class="active"><a href="/feed" > FEED </a></li>
+            <li><a href="/feed-new" > CREATE FEED </a></li>
+            <li><a href="/source-new" > CREATE NEWS SOURCE</a></li>						
+            <li *ngIf="token == null"><a href="/login" >LOG IN</a></li>
+            <li *ngIf="token == null"><a href="/register" >REGISTER</a></li>
+            <li *ngIf="token"><a href="/logout">LOG OUT</a></li>
+        </ul>
+    </div>			
+</div>

@@ -1,6 +1,7 @@
 package com.krisitown.newsaggregator.services;
 
 import com.krisitown.newsaggregator.dto.NewsSourceCreationRequest;
+import com.krisitown.newsaggregator.dto.NewsSourceEditRequest;
 import com.krisitown.newsaggregator.models.NewsSource;
 import com.krisitown.newsaggregator.models.User;
 import com.krisitown.newsaggregator.repositories.NewsSourcesRepository;
@@ -31,6 +32,18 @@ public class NewsSourceServiceImpl implements NewsSourceService {
         newsSource.setUser(user);
         newsSourcesRepository.save(newsSource);
         return newsSource;
+    }
+
+    @Override
+    public NewsSource edit(NewsSourceEditRequest editRequest) {
+        NewsSource source = newsSourcesRepository.findById(editRequest.getId()).get();
+        source.setLinkSelector(editRequest.getLinkSelector());
+        source.setLink(editRequest.getLink());
+        source.setImageSelector(editRequest.getImageSelector());
+        source.setContentSelector(editRequest.getContentSelector());
+        source.setTitleSelector(editRequest.getTitleSelector());
+        newsSourcesRepository.save(source);
+        return source;
     }
 
     @Override

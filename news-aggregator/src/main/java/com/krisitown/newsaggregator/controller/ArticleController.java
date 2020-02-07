@@ -20,6 +20,11 @@ public class ArticleController {
     @Autowired
     private NewsSourceService newsSourceService;
 
+    @GetMapping("/get/{articleId}")
+    private Article getArticle(@PathVariable Long articleId){
+        return articleService.get(articleId);
+    }
+
     @PostMapping("/new")
     public Article create(Article article){
         return articleService.persist(article);

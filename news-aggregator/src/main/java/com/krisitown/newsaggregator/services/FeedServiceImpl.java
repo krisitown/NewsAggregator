@@ -1,6 +1,7 @@
 package com.krisitown.newsaggregator.services;
 
 import com.krisitown.newsaggregator.dto.FeedCreationRequest;
+import com.krisitown.newsaggregator.dto.FeedEditRequest;
 import com.krisitown.newsaggregator.models.Feed;
 import com.krisitown.newsaggregator.models.NewsSource;
 import com.krisitown.newsaggregator.models.User;
@@ -55,6 +56,19 @@ public class FeedServiceImpl implements FeedService {
     public List<Feed> getUserFeeds(String token) {
         User user = usersRepository.findById(token).get();
         return feedRepository.findAllByUser(user);
+    }
+
+    @Override
+    public Feed edit(FeedEditRequest feed) {
+        Feed oldFeed = feedRepository.findById(feed.getId()).get();
+        oldFeed.setName(feed.getName());
+        List<NewsSource> sources = new ArrayList<>();
+        for(Long id : feed.getIds()){
+            sources.add(sourceRepository.findById(id).get());
+        }
+        oldFeed.setSources(sources);
+        feedRepository.save(oldFeed);
+        return oldFeed;
     }
 
     @Override

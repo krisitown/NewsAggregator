@@ -1,0 +1,10 @@
+<div style="margin-left: 35px; display:inline-block" class="col-xs-4 col-md-4 col-lg-4">
+    <h2 style="margin-bottom: 20px;">Edit feed:</h2>
+    <p>Name:</p> <input [(ngModel)]="name">
+    <div style="margin-top: 10px;" *ngFor="let source of sources">
+        <input  type="checkbox" value="{{source.id}}" [(ngModel)]="source.checked"> {{source.link}}
+    </div>
+    <div style="margin-top: 20px;">
+        <button (click)="edit()">Edit!</button>
+    </div>
+</div>

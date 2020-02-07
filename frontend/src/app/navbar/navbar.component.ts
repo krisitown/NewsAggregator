@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StorageManagerService } from '../storage-manager.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +8,14 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  private token:string;
-  constructor() { }
+  private token:any;
+  constructor(private manager:StorageManagerService) { }
 
   ngOnInit() {
-    this.token = localStorage.getItem('userToken'); 
+    this.token = this.manager.getUserToken();
+    this.manager.userToken.subscribe(r => {
+      console.log("userToken value changed!");
+      this.token = r;
+    }) 
   }
 }

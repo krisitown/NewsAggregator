@@ -1,17 +1,26 @@
-Create source:
-<div>
-    Link: <input type="text" [(ngModel)]="link">
+<div style="float: left;" class="col-xs-6 col-md-6 col-lg-6">
+    <h2>Create source:</h2>
+    <div>
+        Link: <input type="text" [(ngModel)]="link">
+    </div>
+    <div>
+        Link Selector: <input type="text" [(ngModel)]="linkSel">
+    </div>
+    <div>
+        Title Selector: <input type="text" [(ngModel)]="title">
+    </div>
+    <div>
+        Content Selector: <input type="text" [(ngModel)]="content">
+    </div>
+    <div>
+        Image Selector: <input type="text" [(ngModel)]="image">
+    </div>
+    <button (click)="create()">Create</button>
 </div>
-<div>
-    Link Selector: <input type="text" [(ngModel)]="linkSel">
+
+<div style="float: right;" class="col-xs-4 col-md-4 col-lg-4">
+    <h2>News Sources:</h2>
+    <div *ngFor="let source of sources">
+        <p>{{source.link}}<a href="/source/{{source.id}}"><span style="margin-left: 15px;">edit</span></a></p>
+    </div>
 </div>
-<div>
-    Title Selector: <input type="text" [(ngModel)]="title">
-</div>
-<div>
-    Content Selector: <input type="text" [(ngModel)]="content">
-</div>
-<div>
-    Image Selector: <input type="text" [(ngModel)]="image">
-</div>
-<button (click)="create()">Create</button>

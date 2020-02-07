@@ -1,15 +1,11 @@
-package com.krisitown.newsaggregator.models;
+package com.krisitown.newsaggregator.dto;
 
 import lombok.Data;
 import lombok.NonNull;
 
-import javax.persistence.*;
-
-@Entity
 @Data
-public class NewsSource {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class NewsSourceEditRequest {
+    @NonNull
     private Long id;
 
     @NonNull
@@ -26,9 +22,4 @@ public class NewsSource {
 
     @NonNull
     private String imageSelector;
-
-    @ManyToOne
-    private User user;
-
-    public NewsSource(){}
 }

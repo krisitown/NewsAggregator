@@ -1,7 +1,16 @@
-Name: <input [(ngModel)]="name">
-<div *ngFor="let source of sources">
-    <input  type="checkbox" value="{{source.id}}" [(ngModel)]="source.checked"> {{source.link}}
+<div style="margin-left: 35px; display:inline-block" class="col-xs-4 col-md-4 col-lg-4">
+    <h2 style="margin-bottom: 20px;">Create new Feed:</h2>
+    <p>Name:</p> <input [(ngModel)]="name">
+    <div style="margin-top: 10px;" *ngFor="let source of sources">
+        <input  type="checkbox" value="{{source.id}}" [(ngModel)]="source.checked"> {{source.link}}
+    </div>
+    <div style="margin-top: 20px;">
+        <button (click)="createFeed()">Create!</button>
+    </div>
 </div>
-<div>
-    <button (click)="createFeed()">Create!</button>
+<div style="float: right;" class="col-xs-4 col-md-4 col-lg-4">
+    <h2 style="margin-bottom: 20px;">Current feeds:</h2>
+    <ul>
+        <li *ngFor="let feed of feeds">{{feed.name}}<a href="/feed/{{feed.id}}"><span style="padding-left: 15px;">edit</span></a></li>
+    </ul>
 </div>

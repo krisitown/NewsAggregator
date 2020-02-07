@@ -1,0 +1,19 @@
+<div>
+    <h2>Edit Source:</h2>
+    <div>
+        Link: <input type="text" [(ngModel)]="source.link">
+    </div>
+    <div>
+        Link Selector: <input type="text" [(ngModel)]="source.linkSelector">
+    </div>
+    <div>
+        Title Selector: <input type="text" [(ngModel)]="source.titleSelector">
+    </div>
+    <div>
+        Content Selector: <input type="text" [(ngModel)]="source.contentSelector">
+    </div>
+    <div>
+        Image Selector: <input type="text" [(ngModel)]="source.imageSelector">
+    </div>
+    <button (click)="edit()">Edit</button>
+</div>

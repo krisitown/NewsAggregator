@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { StorageManagerService } from '../storage-manager.service';
 
 @Component({
   selector: 'app-feed',
@@ -12,11 +13,11 @@ export class FeedComponent implements OnInit {
   private feeds:any;
   private articles:any;
   private token:string;
-  constructor(private client:HttpClient) { }
+  constructor(private client:HttpClient, private manager:StorageManagerService) { }
 
   ngOnInit() {
     console.log("FEED!");
-    this.token = localStorage.getItem('userToken');
+    this.token = this.manager.getUserToken();
     this.client.get<any>('http://localhost:8080/api/feeds/get?token=' + this.token).subscribe(data => {
       console.log(data);
       this.feeds = data;

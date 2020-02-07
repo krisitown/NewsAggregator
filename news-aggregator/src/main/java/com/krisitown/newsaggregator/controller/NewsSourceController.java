@@ -1,6 +1,7 @@
 package com.krisitown.newsaggregator.controller;
 
 import com.krisitown.newsaggregator.dto.NewsSourceCreationRequest;
+import com.krisitown.newsaggregator.dto.NewsSourceEditRequest;
 import com.krisitown.newsaggregator.models.NewsSource;
 import com.krisitown.newsaggregator.services.interfaces.NewsSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class NewsSourceController {
     }
 
     @PutMapping("/edit")
-    public NewsSource update(@RequestBody NewsSource newsSource){
-        return newsSourceService.persistNewsSource(newsSource);
+    public NewsSource update(@RequestBody NewsSourceEditRequest newsSource){
+        return newsSourceService.edit(newsSource);
     }
 
     @GetMapping("/index")

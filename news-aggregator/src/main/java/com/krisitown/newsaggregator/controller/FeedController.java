@@ -1,6 +1,7 @@
 package com.krisitown.newsaggregator.controller;
 
 import com.krisitown.newsaggregator.dto.FeedCreationRequest;
+import com.krisitown.newsaggregator.dto.FeedEditRequest;
 import com.krisitown.newsaggregator.models.Feed;
 import com.krisitown.newsaggregator.services.interfaces.FeedService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class FeedController {
         return feedService.getFeed(feedId);
     }
 
-    @PutMapping("/update")
-    public Feed update(@RequestBody Feed feed){
-        return feedService.persist(feed);
+    @PutMapping("/edit")
+    public Feed update(@RequestBody FeedEditRequest feed){
+        return feedService.edit(feed);
     }
 }

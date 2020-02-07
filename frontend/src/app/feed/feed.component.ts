@@ -36,6 +36,9 @@ export class FeedComponent implements OnInit {
     this.articles = [];
     sources.forEach(element => {
       this.client.get<any>("http://localhost:8080/api/articles/bySource/" + element.id).subscribe(result => {
+        console.log(result);
+        result = result.filter(r=> r['id'] && r['title'] && r['content']);
+        console.log(result);
         this.articles = this.articles.concat(result);
         this.articles = this.splitUp(this.articles, 4);
         console.log(this.articles);

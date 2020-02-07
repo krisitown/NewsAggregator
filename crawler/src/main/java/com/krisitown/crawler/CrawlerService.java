@@ -56,7 +56,7 @@ public class CrawlerService {
                 if(article == null){
                     continue;
                 }
-
+                article.setLink(link);
                 databaseService.saveArticle(article);
                 try {
                     Thread.sleep(1500);
@@ -71,7 +71,6 @@ public class CrawlerService {
     private Article parseArticle(Document document, NewsSource source){
         Article article = new Article();
         article.setNewsSource(source);
-
         Element titleElement = document.selectFirst(source.getTitleSelector());
         if(titleElement == null){
             return null;
@@ -89,7 +88,7 @@ public class CrawlerService {
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        contentElements.forEach(x -> stringBuilder.append("<p>" + x.text() + "</p>"));
+        contentElements.forEach(x -> stringBuilder.append(x.text()));
         article.setContent(stringBuilder.toString());
 
         return article;

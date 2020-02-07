@@ -1,8 +1,10 @@
-Login:
-<div>
-    <input type="email" [(ngModel)]="email">
+<div style="display: block; margin:auto;">
+        <h2>Login:</h2>
+        <div style="margin-top: 15px;">
+            <input type="email" [(ngModel)]="email">
+        </div>
+        <div style="margin-top: 15px;">
+            <input type="password" [(ngModel)]="password">
+        </div>
+        <button style="margin-top: 15px;" (click)="login()">Log in</button>
 </div>
-<div>
-    <input type="password" [(ngModel)]="password">
-</div>
-<button (click)="login()">Log in</button>

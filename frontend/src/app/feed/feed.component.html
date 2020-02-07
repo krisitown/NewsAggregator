@@ -9,14 +9,14 @@
         <div *ngFor="let articleCol of articles" class="port-grid">
                 <div *ngFor="let article of articleCol" class="portfolio web mix_all" data-cat="web" style="display: inline-block; opacity: 1;">
                         <div class="portfolio-wrapper ">		
-                            <a href="single.html" class="b-link-stripe b-animate-go  thickbox play-icon ">
+                            <a href="/article/{{article.id}}" class="b-link-stripe b-animate-go  thickbox play-icon ">
                              <img class="img-responsive" src="{{article.image}}" alt=""  />
                         	</a>
                             <div class="simple-out">
                                 <h4><a href="/article/{{article.id}}">{{article.title}}</a></h4>
-                                <span>January 15, 2015</span>
-                                <p>{{article.content.slice(0, 35) + ".."}}</p>
-                                <a href="#" class="read-more"><span> </span>MORE</a>
+                                <!--<span>ADD DATE HERE</span>-->
+                                <p *ngIf="article.content">{{article.content.slice(0, 35) + ".."}}</p>
+                                <a href="/article/{{article.id}}" class="read-more"><span> </span>MORE</a>
                             </div>							
                         </div>
                     </div>
